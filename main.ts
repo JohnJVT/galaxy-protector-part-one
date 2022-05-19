@@ -20,6 +20,17 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, Ship, 0, -100)
+    projectile.startEffect(effects.halo, 100)
+})
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.disintegrate, 500)
+    info.changeScoreBy(1)
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
+    otherSprite.destroy(effects.disintegrate, 500)
+    scene.cameraShake(4, 500)
+    Ship.startEffect(effects.fire, 200)
+    info.changeLifeBy(-1)
 })
 let projectile: Sprite = null
 let Ship: Sprite = null
