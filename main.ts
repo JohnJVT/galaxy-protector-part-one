@@ -166,8 +166,8 @@ Ship.setBounceOnWall(true)
 controller.moveSprite(Ship, 100, 100)
 info.setLife(3)
 effects.starField.startScreenEffect()
-game.onUpdateInterval(500, function () {
-    projectile = sprites.createProjectileFromSide(Astroids[randint(0, 1 - Astroids.length)], 0, 74)
-    projectile.setKind(SpriteKind.Enemy)
+game.onUpdateInterval(2000, function () {
+    projectile = sprites.createProjectileFromSide(Astroids[randint(1, 6 - Astroids.length)], 0, 74)
     projectile.x = randint(10, 150)
+    projectile.setKind(SpriteKind.Enemy)
 })
